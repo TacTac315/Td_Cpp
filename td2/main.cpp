@@ -7,6 +7,7 @@ int main()
     Vecteur V1; //Vecteur vide
     Vecteur V2(3); //Vecteur de dimension 3
     Vecteur V3(5, 1.2); //Vecteur de dim 5 avec 1.2
+    Vecteur V4(5);
     float f;
     /*
     cout<<"Vecteur 1:"<<endl;
@@ -34,5 +35,8 @@ int main()
     V3.AfficheVecteur();
     f=V3[3];
     cout<<"Element 3 du vecteur 3: "<<f<<endl;
+    V4=V3;
+    cout<<"V4=V3 : "<<endl;
+    V4.AfficheVecteur();
     return 0;
 }

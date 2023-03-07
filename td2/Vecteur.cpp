@@ -80,3 +80,19 @@ float Vecteur::operator[](int indice) const
 {   
     return m_composantes[indice];
 }
+
+Vecteur& Vecteur::operator= (const Vecteur V)
+{
+/*
+        if (m_dim != V.m_dim)
+        {
+            m_composantes = new float[V.m_dim];
+            m_dim = V.m_dim;
+        }*/
+        m_composantes = new float[V.m_dim];
+        for (int i = 0; i < m_dim; i++)
+        {
+            m_composantes[i] = V.m_composantes[i];
+        }
+    return *this;
+}

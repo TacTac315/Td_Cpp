@@ -19,6 +19,8 @@ class Vecteur
     //Surcharge des opérateurs
     float & operator[] (int indice);
     float operator[] (int indice) const;
+    Vecteur &operator= (const Vecteur V);
+
     private:
     //Attributs
     int m_dim;
