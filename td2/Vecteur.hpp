@@ -5,26 +5,27 @@
 
 class Vecteur
 {
-    public:
-    //Constructeurs
+public:
+    // Constructeurs
     Vecteur();
     Vecteur(int dim);
     Vecteur(int dim, float composantes);
-    ~Vecteur();//Destructeur
+    ~Vecteur(); // Destructeur
 
-    //Méthodes (fonctions)
+    // Méthodes (fonctions)
     void AfficheVecteur();
     void ComposerVecteur();
 
-    //Surcharge des opérateurs
-    float & operator[] (int indice);
-    float operator[] (int indice) const;
-    Vecteur &operator= (const Vecteur V);
+    // Surcharge des opérateurs
+    float &operator[](int indice);
+    float operator[](int indice) const;
+    Vecteur &operator=(const Vecteur &V);
+    Vecteur &operator+=(const Vecteur &V);
 
-    private:
-    //Attributs
+private:
+    // Attributs
     int m_dim;
-    float * m_composantes;
+    float *m_composantes;
 };
 
 #endif

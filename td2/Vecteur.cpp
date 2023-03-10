@@ -7,8 +7,10 @@ Vecteur::Vecteur() : m_dim(0), m_composantes(0)
 {
 }
 
-Vecteur::Vecteur(int dim) : m_dim(dim), m_composantes(0)
+Vecteur::Vecteur(int dim)
 {
+    m_dim = dim;
+    m_composantes = new float[dim];
 }
 
 Vecteur::Vecteur(int dim, float composantes)
@@ -71,28 +73,40 @@ void Vecteur::ComposerVecteur()
     }
 }
 
-float & Vecteur::operator[](int indice)
-{   
+float &Vecteur::operator[](int indice)
+{
     return m_composantes[indice];
 }
 
 float Vecteur::operator[](int indice) const
-{   
+{
     return m_composantes[indice];
 }
 
-Vecteur& Vecteur::operator= (const Vecteur V)
+Vecteur &Vecteur::operator=(const Vecteur &V)
 {
-/*
-        if (m_dim != V.m_dim)
-        {
-            m_composantes = new float[V.m_dim];
-            m_dim = V.m_dim;
-        }*/
-        m_composantes = new float[V.m_dim];
-        for (int i = 0; i < m_dim; i++)
-        {
-            m_composantes[i] = V.m_composantes[i];
-        }
+    if (m_dim != V.m_dim)
+    {
+        cout << "Les vecteurs sont de dimension différente ! " << endl;
+        exit(-1);
+    }
+    for (int i = 0; i < m_dim; i++)
+    {
+        m_composantes[i] = V.m_composantes[i];
+    }
+    return *this;
+}
+
+Vecteur &Vecteur::operator+=(const Vecteur &V)
+{
+    if (m_dim != V.m_dim)
+    {
+        cout << "Les vecteurs sont de dimension différente ! " << endl;
+        exit(-1);
+    }
+    for (int i = 0; i < m_dim; i++)
+    {
+        m_composantes[i] += V.m_composantes[i];
+    }
     return *this;
 }
